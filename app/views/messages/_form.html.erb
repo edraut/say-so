@@ -1,0 +1,24 @@
+<%= simple_form_for message, html: {
+  'data-ajax_form' => true,
+  'data-ajax_target' => (message.new_record? ? '#messages_container' : "#message_#{message.id}"),
+  'data-insert_method' => (message.new_record? ? 'append' : 'html') } do |f| %>
+  <% if message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+      <ul>
+      <% message.errors.full_messages.each do |err_msg| %>
+        <li><%= err_msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,1 @@
+ForeignOffice.bus = ForeignOffice::Busses::PubnubBus

@@ -1,0 +1,16 @@
+<h1>Listing messages</h1>
+Total number of messages: <span data-listener="true" data-channel="Default" data-key="message_count"><%= Counter.total %></span>
+<div id="messages_container">
+  <% @messages.each do |message| %>
+    <%= render partial: 'show_with_wrapper', locals: {message: message} %>
+  <% end %>
+</div>
+
+<br>
+
+<%= link_to 'New Message', new_message_path, 
+  'data-ajax_link' => true,
+  'data-ajax_target' => '#new_message_container',
+  'data-insert_method' => 'html' %>
+<div id="new_message_container">
+</div>

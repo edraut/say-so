@@ -1,0 +1,8 @@
+<h1>Editing message</h1>
+
+<%= render partial: 'form', locals: {message: message} %>
+
+<%= link_to 'Show', message_path(message),
+  'data-ajax_link' => true,
+  'data-ajax_target' => "#message_#{message.id}",
+  'data-insert_method' => 'html' %> |
